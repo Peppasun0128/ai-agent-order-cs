@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+.DS_Store
+*.pyc
+# 排除大型模型與合併後的模型
+lab4/merged_model/
+model/
+# 排除大型權重檔
+*.safetensors
+*.bin
+*.pth
+# 排除日誌與臨時檔
+*.log
