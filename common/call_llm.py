@@ -1,3 +1,4 @@
+import os
 import requests
 
 def call_llm(messages):
@@ -10,7 +11,7 @@ def call_llm(messages):
         "max_tokens": 4096
     }
     
-    response = requests.post("http://127.0.0.1:8299/v1/chat/completions", json=data)
+    response = requests.post(os.getenv("VLLM_BASE_URL", "http://127.0.0.1:8299/v1") + "/chat/completions", json=data)
     response = response.json()
     response_text = response["choices"][0]["message"]["content"]
     return response_text
